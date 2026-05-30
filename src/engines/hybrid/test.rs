@@ -13,7 +13,7 @@ fn searcher() {
     let mut cache = regex.create_cache();
     let rope = ropey::Rope::from_str(&text);
     let matches: Vec<_> = find_iter(&regex, &mut cache, Input::new(&rope))
-        .map(|range| rope.byte_slice(range.range()))
+        .map(|range| rope.slice(range.range()))
         .collect();
     assert_eq!(matches.len(), 68);
 }
